@@ -1,0 +1,14 @@
+<li class="m-1" [ngClass]="{'list-group-item': true,
+                'list-group-item-success': postLoveIts > 0,
+                'list-group-item-danger': postLoveIts < 0}">
+    <h5 class="float-right">{{ postCreatedAt | date:'dd/MM/yyyy hh:mm a' }}</h5>
+    <h4>{{ postTitle }}</h4>
+    <p>{{ postContent }}</p>
+    <button class="btn btn-success m-1" (click)="setLove(1)">Love It !</button>
+    <button class="btn btn-secondary m-1">
+        <fa-icon [icon]="faHeart" *ngIf="postLoveIts > 0"></fa-icon>
+        <fa-icon [icon]="faHeartBroken" *ngIf="postLoveIts <= 0"></fa-icon>
+        {{ postLoveIts }}
+    </button>
+    <button class="btn btn-danger m-1" (click)="setLove(-1)">Don't Love It !</button>
+</li>
